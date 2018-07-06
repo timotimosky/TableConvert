@@ -1,0 +1,13 @@
+{
+  "OutputPath": "F:\\____自研工具\\EXCEL导表工具\\源码\\Exe/Output",
+  "ExcelPath": "C:\\Users\\workInHome\\Desktop",
+  "EndFlag": null,
+  "ClipCount": 0,
+  "ColumnClip": 0,
+  "RowClip": 0,
+  "SheetName": null,
+  "IgnoreFlag": null,
+  "ClientNote": false,
+  "ServerAppendType": false,
+  "ServerAppendNote": false
+}

@@ -1,0 +1,81 @@
+﻿{0}= { }
+
+--根据多个key获取值
+function {0}:get_value_by_mulkey(...)
+    local tab = {...}
+    local ind = tab[1]
+    local addValue = math.modf(ind / {1})
+    local realTableName = "{0}" .. addValue
+    if {0}[realTableName] ~= nil then
+        return {0}[realTableName]:get_value_by_mulkey(...)
+    else
+        local requirePath = "data.{0}." .. realTableName
+        local state, msg = pcall( function() require(requirePath) end)
+        if state then
+            if _G[realTableName] ~= nil then
+                {0}[realTableName] = _G[realTableName]
+                return _G[realTableName]:get_value_by_mulkey(...)
+            else
+                return nil
+            end
+        else
+            --print(msg)
+            return nil
+        end
+    end
+
+end
+
+--根据索引获取值
+function {0}:get_value_by_index(ind)
+    local addValue = math.modf(ind / {1})
+    local realTableName = "{0}" .. addValue
+    if {0}[realTableName] ~= nil then
+        return {0}[realTableName]:get_value_by_index(ind)
+    else
+        local requirePath = "data.{0}." .. realTableName
+        local state, msg = pcall( function() require(requirePath) end)
+        if state then
+            if _G[realTableName] ~= nil then
+                {0}[realTableName] = _G[realTableName]
+                return _G[realTableName]:get_value_by_index(ind)
+            else
+                return nil
+            end
+        else
+            --print(msg)
+            return nil
+        end
+    end
+
+end
+
+--获取总长度
+function {0}:get_count()
+    return {2}
+end
+
+--获取所有数据
+function {0}:get_all()
+    local sub_table ={{3}}
+    local all_data = {}
+    for i=1,#sub_table do
+        local requirePath = "data.{0}." .. sub_table[i]
+        --print("requirePath",requirePath)
+        local state, msg = pcall( function() require(requirePath) end)
+        if state then
+            if _G[sub_table[i]]~=nil then
+                local table_data =  _G[sub_table[i]]
+                for _, v in pairs(table_data) do
+                	if type(v) ~= "function" then
+	                	table.insert(all_data,v)
+	                end
+	            end
+            end
+        else
+        	--print("---------msg------------",msg)
+        end
+        
+    end
+    return all_data
+end

@@ -1,0 +1,14 @@
+{
+  "OutputPath": "C:\\Users\\Administrator\\Documents\\Visual Studio 2013\\Projects\\TableConvert\\TableConvert\\bin\\Debug/../../../Output",
+  "ExcelPath": "C:\\Users\\Administrator\\Documents\\Visual Studio 2013\\Projects\\TableConvert\\ExcelTest",
+  "EndFlag": "END",
+  "ClipCount": 1,
+  "ColumnClip": 1,
+  "RowClip": 1,
+  "SheetName": "源表",
+  "IgnoreFlag": "NO",
+  "ClientNote": true,
+  "ServerAppendType": true,
+  "ServerAppendNote": true,
+  "ExcelClipCount": 1
+}

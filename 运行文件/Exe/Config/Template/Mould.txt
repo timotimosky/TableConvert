@@ -1,0 +1,73 @@
+{0} ={
+
+{1}
+
+}
+
+--根据多个索引key获取值
+function {0}:get_value_by_mulkey(...)
+	local tab = {...}
+	if #tab<0 then 
+		return nil
+	end
+	if #tab ==1 then
+		return self:get_value_by_index(tab[1])
+	end
+	local content = {0}[tab[1]]
+	for i=2,#tab do
+		if content[tab[i]]~=nil then
+			content = content[tab[i]]
+		else
+			content = nil 
+			break
+		end
+	end
+	return content
+end
+
+
+--根据顺序获取单个
+function {0}:get_value_by_index(id)
+    if {0}[id]~=nil then 
+        return {0}[id]
+    else
+        return nil
+    end
+end
+
+--根据任意key获取单个
+function {0}:get_item_by_index(key,id)
+    local found = false
+    local t
+    for i=1,#{0} do
+        t = {0}[i]
+        if t[key] == id then 
+            found = true
+            break
+        end
+    end
+    if found == true then 
+        return t 
+    else 
+        return nil
+    end
+end
+
+--根据任意key获取所有匹配的
+function {0}:get_items_by_key(key,id)
+    local found = false
+    local t
+    local ts = {}
+    for i=1,#{0} do
+        t = {0}[i]
+        if t[key]~=nil and t[key] == id then
+            found = true
+            table.insert(ts,t)
+        end
+    end
+    if found == true then
+        return ts,#ts
+    else
+        return nil,0
+    end
+end

@@ -1,0 +1,69 @@
+std_model = {
+{0}
+}
+
+--通用查询方法
+function std_model:get_data(key,id)
+    if std_model[key]~=nil and std_model[key][id]~=nil then
+        return std_model[key][id]
+    else
+        return nil
+    end
+end
+
+--根据模型id获取模型路径
+function std_model:get_model_by_id(id)
+    if std_model.model[id] and std_model.model[id].main and std_model.model[id].main ~=nil then
+        return std_model.model[id].main
+    else
+        return nil
+    end
+end
+
+
+--根据模型id获取身体路径
+function std_model:get_body_paths_by_id(id)
+    local paths = {}
+    if std_model.model[id] and std_model.model[id].body and #std_model.model[id].body > 0 then
+        return std_model.model[id].body
+    else
+        return paths
+    end
+end
+
+--根据武器id获取武器路径
+function std_model:get_weapon_by_id(id)
+    if std_model.weapon[id] then
+        return std_model.weapon[id]
+    else
+        return nil
+    end
+end
+
+
+--根据法阵id获取法阵路径
+function std_model:get_matrix_by_id(id)
+    if std_model.matrix[id] and #std_model.matrix[id]>0 then
+        return std_model.matrix[id][1]
+    else
+        return nil
+    end
+end
+
+--根据坐骑id获取坐骑路径
+function std_model:get_mount_by_id(id)
+    if std_model.mount[id] and #std_model.mount[id]>0 then
+        return std_model.mount[id][1]
+    else
+        return nil
+    end
+end
+
+--根据披风id获取披风路径
+function std_model:get_cloak_by_id(id)
+    if std_model.cloak[id] and #std_model.cloak[id]>0 then
+        return std_model.cloak[id][1]
+    else
+        return nil
+    end
+end
